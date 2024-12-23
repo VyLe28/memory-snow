@@ -1,0 +1,883 @@
+/* Importing google font */
+@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
+
+/* 
+GLOBAL SETTINGS
+*/
+
+html {
+	--dark-main: #1e1e1e;
+	--main: #2e2e2e;
+	--light-main: #3e3e3e;
+	--secondary: #ff0800;
+	--dark-secondary: #c00600;
+	--light-white: #e0e0e0;
+    font-family: 'Heebo', sans-serif;
+    color: var(--light-white);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2b2b2b;
+    background-image: url('');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+
+/* 
+NAVIGATION BAR
+*/
+
+nav{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	padding: 0;
+    padding-left: 10px;
+    font-size: 1.5em;
+	margin: 0;
+	box-sizing: border-box;
+	outline: none;
+	display: flex ;
+	flex-flow: row wrap;
+	width: 100%;
+	align-items: center;
+	background-color: var(--dark-main);
+	/*
+	padding: 0;
+	margin: 0;
+	display: flex; 
+	flex-flow: row nowrap;
+	justify-content: space-between !important; 
+	align-items: center;
+	*/
+}
+
+nav span {
+	color: white;
+	font-size: 1.5em;
+}
+
+nav ul{
+	margin: 0;
+	display: flex;
+	overflow: hidden;
+	flex-direction: row;
+    flex-wrap: wrap;
+	list-style-type: none;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: var(--light-white);
+	font-size: 1em;
+	margin-left: 1em;
+}
+
+nav ul li a:hover{
+	color: var(--light-white);
+	text-shadow: 0.5px 0.5px 0px var(--light-white);
+}
+
+/* 
+BACKGROUND PARTICLES
+*/
+
+/* Putting the canva as background*/
+.particles-js-canvas-el {
+	z-index: 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	padding: 0;
+	margin: 0;
+	background-size: cover;
+}
+
+/* 
+ENSURE A SCREEN LARGE ENOUGH
+*/
+
+#need-computer {
+	background-color: red;
+	display: none;
+}
+
+/* Whenever the screen's width is smaller than 1200px, display #need-computer on the whole page and disable scrolling */
+@media screen and (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+        margin: 0.5em 0;
+    }
+
+    section {
+        width: 90%;
+        height: auto;
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    #game-board {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .flip-card {
+        width: 100px;
+        height: 80px;
+    }
+
+    .game-button {
+        width: 100%;
+        height: auto;
+        font-size: 1em;
+    }
+}
+
+/* 
+LOADING ANIMATION
+*/
+
+@-webkit-keyframes honeycomb {
+	0%,
+	20%,
+	80%,
+	100% {
+	  opacity: 0;
+	  -webkit-transform: scale(0);
+	  transform: scale(0);
+	}
+  
+	30%,
+	70% {
+	  opacity: 1;
+	  -webkit-transform: scale(1);
+	  transform: scale(1);
+	}
+  }
+  
+  @keyframes honeycomb {
+	0%,
+	20%,
+	80%,
+	100% {
+	  opacity: 0;
+	  -webkit-transform: scale(0);
+	  transform: scale(0);
+	}
+  
+	30%,
+	70% {
+	  opacity: 1;
+	  -webkit-transform: scale(1);
+	  transform: scale(1);
+	}
+  }
+  
+  .honeycomb {
+	height: 24px;
+	position: relative;
+	width: 24px;
+  }
+  
+  .honeycomb div {
+	-webkit-animation: honeycomb 2.1s infinite backwards;
+	animation: honeycomb 2.1s infinite backwards;
+	background: #f3f3f3;
+	height: 12px;
+	margin-top: 6px;
+	position: absolute;
+	width: 24px;
+  }
+  
+  .honeycomb div:after, .honeycomb div:before {
+	content: '';
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	position: absolute;
+	left: 0;
+	right: 0;
+  }
+  
+  .honeycomb div:after {
+	top: -6px;
+	border-bottom: 6px solid #f3f3f3;
+  }
+  
+  .honeycomb div:before {
+	bottom: -6px;
+	border-top: 6px solid #f3f3f3;
+  }
+  
+  .honeycomb div:nth-child(1) {
+	left: -28px;
+	top: 0;
+  }
+  
+  .honeycomb div:nth-child(2) {
+	-webkit-animation-delay: 0.1s;
+	animation-delay: 0.1s;
+	left: -14px;
+	top: 22px;
+  }
+  
+  .honeycomb div:nth-child(3) {
+	-webkit-animation-delay: 0.2s;
+	animation-delay: 0.2s;
+	left: 14px;
+	top: 22px;
+  }
+  
+  .honeycomb div:nth-child(4) {
+	-webkit-animation-delay: 0.3s;
+	animation-delay: 0.3s;
+	left: 28px;
+	top: 0;
+  }
+  
+  .honeycomb div:nth-child(5) {
+	-webkit-animation-delay: 0.4s;
+	animation-delay: 0.4s;
+	left: 14px;
+	top: -22px;
+  }
+  
+  .honeycomb div:nth-child(6) {
+	-webkit-animation-delay: 0.5s;
+	animation-delay: 0.5s;
+	left: -14px;
+	top: -22px;
+  }
+  
+  .honeycomb div:nth-child(7) {
+	-webkit-animation-delay: 0.6s;
+	animation-delay: 0.6s;
+	left: 0;
+	top: 0;
+  }
+
+/* 
+CONTROL BUTTONS TO NAVIGATE THROUGH THE SLIDES
+*/
+
+#controls {
+	z-index: 10;
+	position: absolute;
+	/* Display in the middle of the page*/
+	top: 10%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 40dvw;
+	display: flex;
+	justify-content: space-between;
+}
+
+#controls button {
+	background-color: transparent;
+	border: none;
+	font-size: 1.5em;
+	color: var(--light-white);
+}
+
+#controls button:disabled {
+	color: var(--dark-secondary);
+}
+
+/* When hover on #controls button make a small animation of the text going on the right side*/
+#next:hover {
+	-webkit-animation: move-right 0.5s ease-in-out infinite alternate;
+	animation: move-right 0.5s ease-in-out infinite alternate;
+}
+/* Animation of the text going on the right side*/
+@-webkit-keyframes move-right {
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translateX(10px);
+		transform: translateX(10px);
+	}
+}
+
+@keyframes move-right {
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translateX(10px);
+		transform: translateX(10px);
+	}
+}
+
+#prev:hover {
+	-webkit-animation: move-left 0.5s ease-in-out infinite alternate;
+	animation: move-left 0.5s ease-in-out infinite alternate;
+}
+
+/* Animation of the text going on the left side*/
+@-webkit-keyframes move-left {
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translateX(-10px);
+		transform: translateX(-10px);
+	}
+}
+
+@keyframes move-left {
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translateX(-10px);
+		transform: translateX(-10px);
+	}
+}
+
+/* Pages in the div with ID pages are not displayed, they will only display if the user requests them */
+#pages {
+	display: none;
+}
+
+/* 
+DISPLAYING THE SLIDES
+*/
+main {
+	/* Display in the middle of the page, and justify all inner elements centered vertically and horizontally */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	/* Display in the middle of the page*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80dvw;
+	height: 70dvh;
+}
+
+section {
+	color: black;
+	background: rgba(255, 255, 255, 0.67);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border: 1px solid rgba(255, 255, 255, 0.54);
+	height: 600px;
+	width: 1000px;
+	padding: 20px;
+}
+
+h2 {
+	text-align: center;
+	margin: auto 0;
+	font-size: 1.5em;
+}
+
+/* 
+SPECIFIC SLIDES SETTINGS
+*/
+
+/* Slide 2 */
+#page-2 h2 {
+	font-size: 2.5em;
+	margin: 2em auto;
+}
+
+#page-2 button {
+	margin: auto;
+	display: flex;
+	padding: 11px 33px;
+	text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+	font-size: 25px;
+	color: white;
+	background: var(--light-main);
+	transition: 1s;
+	box-shadow: 6px 6px 0 black;
+	transform: skewX(-15deg);
+	border: none;
+  }
+  
+  #page-2 button:focus {
+	outline: none;
+  }
+  
+  #page-2 button:hover {
+	transition: 0.5s;
+	box-shadow: 10px 10px 0 var(--dark-secondary);
+  }
+  
+  #page-2 button .second {
+	transition: 0.5s;
+	margin-right: 0px;
+  }
+  
+  #page-2 button:hover  .second {
+	transition: 0.5s;
+	margin-right: 45px;
+  }
+  
+  .span {
+	transform: skewX(15deg)
+  }
+  
+  .second {
+	width: 20px;
+	margin-left: 30px;
+	position: relative;
+	top: 12%;
+  }
+  
+  .one {
+	transition: 0.4s;
+	transform: translateX(-60%);
+  }
+  
+  .two {
+	transition: 0.5s;
+	transform: translateX(-30%);
+  }
+  
+  #page-2 button:hover .three {
+	animation: color_anim 1s infinite 0.2s;
+  }
+  
+  #page-2 button:hover .one {
+	transform: translateX(0%);
+	animation: color_anim 1s infinite 0.6s;
+  }
+  
+  #page-2 button:hover .two {
+	transform: translateX(0%);
+	animation: color_anim 1s infinite 0.4s;
+  }
+  
+  @keyframes color_anim {
+	0% {
+	  fill: white;
+	}
+  
+	50% {
+	  fill: var(--dark-secondary);
+	}
+  
+	100% {
+	  fill: white;
+	}
+  }
+
+  /* 
+ GAME BOARD 
+  */
+#game-board {
+	/* Position absolute, display on top of everything full screen */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100dvw;
+	height: 100dvh;
+	z-index: 100;
+	background-color: var(--main);
+	transition: left 0.5s ease-in-out;
+}
+
+#game-board.hidden {
+	left: -200dvw;
+}
+
+#game-board.show {
+	display: block;
+}
+
+#game-board header {
+	background-color: var(--dark-main);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+
+}
+
+/* Animations to display active player */
+.player {
+	font-size: 1.5em;
+	color: #a9a9a9;
+}
+
+.active-player {
+	-webkit-animation: blink 2s linear infinite;
+	animation: blink 2s linear infinite;
+	font-weight: bold;
+}
+
+
+@keyframes blink {
+	0% {
+		color: white;
+	}
+	50% {
+		color: #ff5100;
+	}
+	100% {
+		color: white;
+	}
+}
+
+
+#scores {
+	font-size: 1.5em;
+}
+
+.game-button {
+	width: 6.5em;
+	height: 2.3em;
+	margin: 0.5em;
+	background: var(--light-main);
+	color: white;
+	border: none;
+	border-radius: 0.625em;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+   }
+   
+   .game-button:hover {
+	color: black;
+   }
+   
+   .game-button:after {
+	content: "";
+	background: white;
+	position: absolute;
+	z-index: -1;
+	left: -20%;
+	right: -20%;
+	top: 0;
+	bottom: 0;
+	transform: skewX(-45deg) scale(0, 1);
+	transition: all 0.5s;
+   }
+   
+   .game-button:hover:after {
+	transform: skewX(-45deg) scale(1, 1);
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+   }
+
+#play-info {
+	display: inline-block;
+	width: 100%;
+	height: 2em;
+	font-size: 1.2rem;
+	margin: 15px 0;
+	text-align: center;
+}
+
+#play-grid {
+	padding: 3em 20px;
+	border-collapse: separate;
+	border-spacing: 10px;
+	margin: 0 auto;
+}
+
+#play-grid-body td {
+	border: 1px solid black;
+	border-radius: 15px;
+	background-color: var(--light-main);
+	overflow: hidden;
+	perspective: 1000px;
+}
+
+#play-grid-body td img {
+	width: 100%;
+	height: 100%;
+}
+
+.flip-card {
+	background-color: transparent;
+	width: 250px;
+	height: 200px;
+	perspective: 1000px;
+	animation: ripple 1.5s linear;
+}
+
+/* Animations whenever cards are turned */
+.wrong {
+	-webkit-animation: wrong 0.25s linear !important;
+	animation: wrong 0.25s linear !important;
+}
+
+@keyframes wrong {
+	0% { 
+		transform: translate(1px, 1px) rotate(0deg); 
+	}
+	10% { 
+		transform: translate(-1px, -2px) rotate(-1deg); 
+		border: red solid 3px;
+	}
+	30% { 
+		transform: translate(3px, 2px) rotate(0deg); 
+	}
+	50% { 
+		transform: translate(-1px, 2px) rotate(-1deg); 
+	}
+	70% { 
+		transform: translate(3px, 1px) rotate(-1deg); 
+	}
+	90% { 
+		transform: translate(1px, 2px) rotate(0deg); 
+		border: red solid 3px;
+	}
+	100% { 
+		transform: translate(1px, -2px) rotate(-1deg); 
+	}
+}
+
+.hide {
+	-webkit-animation: right 1s linear !important;
+	animation: right 1s linear !important;
+}
+
+@keyframes right {
+	0% { 
+		transform: translate(1px, 1px) rotate(0deg); 
+	}
+	10% { 
+		transform: translate(-1px, -2px) rotate(-1deg); 
+		border: green solid 3px;
+	}
+	30% { 
+		transform: translate(3px, 2px) rotate(0deg); 
+	}
+	50% { 
+		transform: translate(-1px, 2px) rotate(-1deg); 
+	}
+	70% { 
+		transform: translate(3px, 1px) rotate(-1deg); 
+	}
+	90% { 
+		transform: translate(1px, 2px) rotate(0deg); 
+		border: green solid 3px;
+	}
+	100% { 
+		transform: translate(1px, -2px) rotate(-1deg); 
+	}
+}
+
+  .game-over {
+	animation: 1.5s ripple ease infinite !important;
+  }
+  
+  td:nth-child(1) {
+	--cell-color: #ff6600;
+	animation-delay: 100ms !important;
+  }
+  
+  td:nth-child(2) {
+	--cell-color: #ff9900;
+	animation-delay: 200ms !important;
+  }
+  
+  td:nth-child(3) {
+	--cell-color: #ffcc00;
+	animation-delay: 300ms !important;
+  }
+  
+  td:nth-child(4) {
+	--cell-color: #ffff00;
+	animation-delay: 400ms !important;
+  }
+  
+  td:nth-child(5) {
+	--cell-color: #ccff00;
+	animation-delay: 500ms !important;
+  }
+  
+  td:nth-child(6) {
+	--cell-color: #99ff00;
+	animation-delay: 600ms !important;
+  }
+  
+  td:nth-child(7) {
+	--cell-color: #66ff00;
+	animation-delay: 700ms !important;
+  }
+  
+  td:nth-child(8) {
+	--cell-color: #33ff00;
+	animation-delay: 800ms !important;
+  }
+  
+  td:nth-child(9) {
+	--cell-color: #00ff00;
+	animation-delay: 900ms !important;
+  }
+  
+  /* Animation of the background moving shadow mainly when game is finished */
+  @keyframes ripple {
+	0% {
+		box-shadow: 1px -1px 20px 2px black;
+		-webkit-box-shadow: 1px -1px 20px 2px black;
+		-moz-box-shadow: 1px -1px 20px 2px black;
+	}
+  
+	35% {
+		box-shadow: 1px -1px 20px 2px var(--cell-color);
+		-webkit-box-shadow: 1px -1px 20px 2px var(--cell-color);
+		-moz-box-shadow: 1px -1px 20px 2px var(--cell-color);
+	}
+  
+	75% {
+		box-shadow: 1px -1px 20px 2px black;
+		-webkit-box-shadow: 1px -1px 20px 2px black;
+		-moz-box-shadow: 1px -1px 20px 2px black;
+	}
+  
+	100% {
+		box-shadow: 1px -1px 20px 2px black;
+		-webkit-box-shadow: 1px -1px 20px 2px black;
+		-moz-box-shadow: 1px -1px 20px 2px black;
+	}
+  }
+  
+  #game-over {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 999;
+	display: none;
+  }
+
+
+  .flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+  
+  .flip-card.flipped .flip-card-inner {
+	transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+  }
+  
+  .flip-card-front {
+	background-color: #bbb;
+	color: black;
+  }
+  
+  .flip-card-back {
+	background-color: #2980b9;
+	color: white;
+	transform: rotateY(180deg);
+  }
+
+
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+.flip-card-back {
+    background-color: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* Responsive styles for small screens */
+@media screen and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+        margin: 0.5em 0;
+    }
+
+    section {
+        width: 90%;
+        height: auto;
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    #game-board {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .flip-card {
+        width: 80px;
+        height: 60px;
+        margin: 5px;
+    }
+
+    .flip-card-inner {
+        width: 100%;
+        height: 100%;
+    }
+
+    .flip-card-front, .flip-card-back {
+        width: 100%;
+        height: 100%;
+    }
+
+    .game-button {
+        width: 100%;
+        height: auto;
+        font-size: 1em;
+    }
+}
