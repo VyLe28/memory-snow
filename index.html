@@ -116,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Các hàm khác trong mã của bạn
 function launchGame() {
     generateGrid();
     // Bắt đầu phát nhạc nếu chưa phát
@@ -126,14 +125,6 @@ function launchGame() {
     document.getElementById('game-board').classList.remove('hidden');
     document.getElementById('game-board').classList.add('show');
 }
-
-function quit() {
-    document.getElementById('game-board').classList.remove('show');
-    document.getElementById('game-board').classList.add('hidden');
-    backgroundMusic.pause();
-    backgroundMusic.currentTime = 0; // Đặt lại nhạc
-}
-
     </script>
     <script src="scripts/index.js"></script>
 </body>
