@@ -121,7 +121,7 @@ ENSURE A SCREEN LARGE ENOUGH
 	}
 }
 
-@media screen and (max-height: 900px) {
+@media screen and (max-height: 875px) {
 	#need-computer {
 		display: block;
 		position: fixed;
