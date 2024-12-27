@@ -109,7 +109,7 @@ ENSURE A SCREEN LARGE ENOUGH
 }
 
 /* Whenever the screen's width is smaller than 1200px, display #need-computer on the whole page and disable scrolling */
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 1200px) {
 	#need-computer {
 		display: block;
 		position: fixed;
@@ -121,7 +121,7 @@ ENSURE A SCREEN LARGE ENOUGH
 	}
 }
 
-@media screen and (max-height: 875px) {
+@media screen and (min-height: 875px) {
 	#need-computer {
 		display: block;
 		position: fixed;
